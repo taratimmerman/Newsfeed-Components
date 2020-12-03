@@ -130,7 +130,7 @@ function articleMaker(article) {
   container.classList.add('article');
   button.classList.add('expandButton');
   date.classList.add('date');
-  title.classList.add('title');
+  //title.classList.add('title');
 
   // Establish the text content
   button.textContent = '➕';
@@ -150,7 +150,7 @@ function articleMaker(article) {
 
   // Add the eventListener
   button.addEventListener('click', (e) => {
-    container.classList.toggle('.article-open');
+    container.classList.toggle('article-open');
   });
 
   return container;
