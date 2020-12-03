@@ -116,6 +116,7 @@ const data = [
 */
 
 function articleMaker(article) {
+  
   // Establish the elements
   const container = document.createElement('div');
   const title = document.createElement('h2');
@@ -123,10 +124,11 @@ function articleMaker(article) {
   const p1 = document.createElement('p');
   const p2 = document.createElement('p');
   const p3 = document.createElement('p');
-  const button = doucment.createElement('span');
+  const button = document.createElement('span');
 
   // Establish the class names
-  button.classList.add('button');
+  container.classList.add('article');
+  button.classList.add('expandButton');
   date.classList.add('date');
   title.classList.add('title');
 
@@ -145,4 +147,20 @@ function articleMaker(article) {
   container.appendChild(p2);
   container.appendChild(p3);
   container.appendChild(button);
+
+  // Add the eventListener
+  button.addEventListener('click', (e) => {
+    container.classList.toggle('.article-open');
+  });
+
+  return container;
 }
+
+  // Variable for the article's HTML location
+  const articleHome = document.querySelector('.articles');
+
+  // Create loop
+  data.forEach((item) => {
+    let newArticle = articleMaker(item);
+    articleHome.appendChild(newArticle);
+  });
